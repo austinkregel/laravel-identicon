@@ -1,0 +1,21 @@
+{
+    "name": "kregel/identicon",
+    "description": "",
+    "authors": [
+        {
+            "name": "Austin Kregel",
+            "email": "me@austinkregel.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "5.1.*",
+        "yzalis/identicon": "^1.1"
+    },
+    "autoload": {
+        "psr-0": {
+            "Kregel\\Identicon": "src/Identicon"
+        }
+    },
+    "minimum-stability": "stable"
+}
