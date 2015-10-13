@@ -38,9 +38,12 @@ route('identicon::main', [
   I use this package for my company's internal social network, it's basically just a big chat and share tech stuff place. 
   
   
-  
+  I use this method (similar to Gravatar)
   ```php
-  <img src="{{  }}
+  <img src="{{ route('identicon::main', [
+    md5($user->email), 
+    '200' 
+]) }}
   ```
 
 # Questions?
