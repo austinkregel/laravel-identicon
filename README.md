@@ -30,7 +30,7 @@ route('identicon::main', [
   ```php
   'aliases' => [
     ...,
-    'Identicon' => Kregel\Identicon\Facades\Identicon,
+    'Identicon' => Kregel\Identicon\Facades\Identicon::class,
     ...,
   ]
   ```
