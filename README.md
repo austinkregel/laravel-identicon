@@ -1,4 +1,4 @@
-# Wut is it?
+# Whatt is it?
 This is a Laravel wrapper for the identicon package. This package comes equipped a custom 
 identicons named route for easy profile image redering. The custom route can be accessed using a named route or by going to 
 `http://YOURDOMAIN.TLD/identicon/d/STRING` where the string is whatever you want...
