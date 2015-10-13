@@ -43,7 +43,7 @@ route('identicon::main', [
   <img src="{{ route('identicon::main', [
     md5($user->email), 
     '200' 
-]) }}
+]) }}">
   ```
 
 # Questions?
