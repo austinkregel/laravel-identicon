@@ -17,11 +17,11 @@ class IdenticonServiceProvider extends ServiceProvider {
 	 * @return void
 	 */
 	public function register()
-	{
+	{		
 		$this->app->bind('identicon', function(){
 			return new \Identicon\Identicon;
 		});
-		$this->app->alias('identicon', Identicon\Identicon::class);
+		$this->app->alias('identicon', Facades\Identicon::class);
 	}
 
 	/**
@@ -32,20 +32,12 @@ class IdenticonServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 	    $this->app->booted(function () {
-	        $this->defineRoutes();
+	        if (! $this->app->routesAreCached()) {
+		        require __DIR__.'/Http/routes.php';
+		    }
 	    });
 	}
-	/**
-	 * Define the UserManagement routes.
-	 *
-	 * @return void
-	 */
-  protected function defineRoutes()
-  {
-      if (! $this->app->routesAreCached()) {
-          require __DIR__.'/Http/routes.php';
-      }
-  }
+
 	/**
 	 * Get the services provided by the provider.
 	 *
