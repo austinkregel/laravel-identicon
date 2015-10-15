@@ -13,7 +13,7 @@
         "yzalis/identicon": "^1.1"
     },
     "autoload": {
-        "psr-0": {
+        "psr-4": {
             "Kregel\\Identicon": "src/Identicon"
         }
     },
