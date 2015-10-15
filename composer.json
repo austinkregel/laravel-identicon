@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Kregel\\Identicon": "src/Identicon"
+            "Kregel\\Identicon\\": "src/Identicon"
         }
     },
     "minimum-stability": "stable"
