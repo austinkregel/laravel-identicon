@@ -1,6 +1,9 @@
 <?php
+
 namespace Kregel\Identicon\Facades;
+
 use Illuminate\Support\Facades\Facade;
+
 /**
  * Get the registered name of the component.
  *
@@ -8,5 +11,8 @@ use Illuminate\Support\Facades\Facade;
  */
 class Identicon extends Facade
 {
-	public static function getFacadeAccessor(){ return 'identicon'; }
+    public static function getFacadeAccessor()
+    {
+        return 'identicon';
+    }
 }
