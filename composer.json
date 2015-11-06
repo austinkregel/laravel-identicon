@@ -1,6 +1,7 @@
 {
     "name": "kregel/identicon",
     "description": "",
+    "tags": ["laravel","identicons", "identicon"]
     "authors": [
         {
             "name": "Austin Kregel",
