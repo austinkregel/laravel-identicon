@@ -1,3 +1,5 @@
+[![downloads](https://img.shields.io/packagist/dt/kregel/identicon.svg)](https://packagist.org/packages/kregel/identicon)
+
 # What is it?
 This is a Laravel wrapper for the [identicon package](https://github.com/yzalis/identicon) written by [yzalis](https://github.com/yzalis). This package comes equipped a custom 
 identicons named route for easy profile image redering. The custom route can be accessed using a named route or by going to 
