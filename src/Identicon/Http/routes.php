@@ -5,4 +5,3 @@ Route::group(['prefix' => config('kregel.identicon.route'), 'as' => 'identicon::
         return response(Identicon::getImageData($base_text, $size, $color, $backgroundColor), 200, ['Content-type' => 'image/png']);
     }]);
 });
-

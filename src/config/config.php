@@ -1,4 +1,5 @@
 <?php
+
 return [
-    'route' => 'identicon'
+    'route' => 'identicon',
 ];
