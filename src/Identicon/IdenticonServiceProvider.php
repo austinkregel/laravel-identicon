@@ -21,7 +21,7 @@ class IdenticonServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind('identicon', function () {
-            return new \Identicon\Identicon;
+            return new \Identicon\Identicon();
         });
         $this->app->alias('identicon', Facades\Identicon::class);
     }
@@ -34,7 +34,7 @@ class IdenticonServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->app->booted(function () {
-            if (! $this->app->routesAreCached()) {
+            if (!$this->app->routesAreCached()) {
                 require __DIR__.'/Http/routes.php';
             }
         });
