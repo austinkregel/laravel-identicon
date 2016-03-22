@@ -18,10 +18,9 @@ class IdenticonServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('identicon', function () {
-            return new \Identicon\Identicon();
-        });
-        $this->app->alias('identicon', Facades\Identicon::class);
+        $loader = \Illuminate\Foundation\AliasLoader::getInstance();
+        // Register the alias.
+        $loader->alias('Identicon', \Identicon\Identicon::class);
     }
 
     /**
