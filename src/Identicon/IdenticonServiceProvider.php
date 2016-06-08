@@ -29,7 +29,7 @@ class IdenticonServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->app->booted(function () {
-            if (!$this->app->routesAreCached()) {
+            if (!$this->app->routesAreCached() && !config('kregel.identicon.local-routes')) {
                 require __DIR__.'/Http/routes.php';
             }
         });
