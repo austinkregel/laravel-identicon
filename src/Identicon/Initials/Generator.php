@@ -1,13 +1,13 @@
 <?php
+
 namespace Kregel\Identicon\Initials;
 
 use Faker\Provider\Image;
 use Identicon\Generator\BaseGenerator;
-use Identicon\Generator\GeneratorInterface;
-use Identicon\Generator\ImageMagickGenerator;
 use Imagick;
 use ImagickDraw;
 use ImagickPixel;
+
 class Generator extends BaseGenerator
 {
     private $text;
@@ -15,8 +15,10 @@ class Generator extends BaseGenerator
     public function setText($text)
     {
         $this->text = $text;
+
         return $this;
     }
+
     public function getText()
     {
         return $this->text;
@@ -25,12 +27,13 @@ class Generator extends BaseGenerator
     private function merge(array $one, array $two)
     {
         foreach ($two as $key => $value) {
-            if(empty($one[$key])){
-                if(!empty($two[$key])){
+            if (empty($one[$key])) {
+                if (!empty($two[$key])) {
                     $one[$key] = $two[$key];
                 }
             }
         }
+
         return $one;
     }
 
@@ -38,6 +41,7 @@ class Generator extends BaseGenerator
     {
         return 'image/png';
     }
+
     private function generateImage()
     {
         $this->generatedImage = new \Imagick();
@@ -57,25 +61,25 @@ class Generator extends BaseGenerator
         $draw->setFont(__DIR__.'/../../fonts/Roboto-Regular.ttf');
         $draw->setFillColor($txtcolor);
         $draw->setStrokeWidth(2.0);
-        $font_size = $size / ((strlen($text)/ (strlen(strlen($text))))) + 4;
+        $font_size = $size / ((strlen($text) / (strlen(strlen($text))))) + 4;
         $draw->setFontSize($font_size);
         $draw->setGravity(Imagick::GRAVITY_CENTER);
 
         $this->generatedImage->newImage($size, $size, $background);
         $this->generatedImage->annotateImage($draw, 0, 0, 0, $text);
-        $this->generatedImage->setImageFormat("png");
+        $this->generatedImage->setImageFormat('png');
         $this->generatedImage->drawImage($draw);
 
         return $this;
     }
 
-
     public function getImageData($string, $size = 64, $color = null, $backgroundColor = null)
     {
         return $this->getImageBinaryData($string, $size, $color, $backgroundColor);
     }
+
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getImageBinaryData($string, $size = null, $color = null, $backgroundColor = null)
     {
@@ -83,17 +87,19 @@ class Generator extends BaseGenerator
         echo $this->getImageResource($string, $size, $color, $backgroundColor);
         $imageData = ob_get_contents();
         ob_end_clean();
+
         return $imageData;
     }
+
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getImageResource($string, $size = null, $color = null, $backgroundColor = null)
     {
-        if(empty($color)){
-//            $color = '333333';
+        if (empty($color)) {
+            //            $color = '333333';
         }
-        if(!empty($backgroundColor)){
+        if (!empty($backgroundColor)) {
             $backgroundColor = '#'.$backgroundColor;
         }
         $this
@@ -102,8 +108,7 @@ class Generator extends BaseGenerator
             ->setColor($backgroundColor)
             ->setBackgroundColor($color)
             ->generateImage();
+
         return $this->generatedImage;
     }
-
-
 }
